@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul{
+			margin: 100px auto;padding: 0;list-style: none;position: relative;width: 900px;height: 400px;overflow: hidden;
+		}
+		li{
+			width: 600px;height:400px;position: absolute;
+			transition: all 1s;
+		}
+		img{
+			width: 100%;height: 100%;
+		}
+	</style>		
+</head>
+<body>
+	<ul id="list">
+		<li>
+			<img src="http://img3.imgtn.bdimg.com/it/u=2999441423,509377438&fm=11&gp=0.jpg" alt="">
+		</li>
+		<li>
+			<img src="http://img3.imgtn.bdimg.com/it/u=2999441423,509377438&fm=11&gp=0.jpg" alt="">
+		</li>
+		<li>
+			<img src="http://img3.imgtn.bdimg.com/it/u=2999441423,509377438&fm=11&gp=0.jpg" alt="">
+		</li>
+		<li>
+			<img src="http://img3.imgtn.bdimg.com/it/u=2999441423,509377438&fm=11&gp=0.jpg" alt="">
+		</li>
+	</ul>
+</body>
+<script>
+	var lis=document.getElementsByTagName('li');
+	var dis=100;
+	for (var i = 0; i < lis.length; i++) {
+		lis[i].style.left = i*dis+"px";
+		lis[i].index=i;
+		lis[i].onmouseover=function(){
+			if(this.offsetLeft==this.index*dis){
+				for (var i = this.index+1; i < lis.length; i++) {
+					lis[i].style.left=i*dis+500+"px";
+				}
+			}else{
+				for (var i = this.index; i >0; i--) {
+					lis[i].style.left=i*dis+"px";
+				}
+			}
+		}
+	}
+</script>
+</html>
